@@ -9,7 +9,7 @@ setup(
     name="smsmanpy",
     version="0.0.1",
     author="Alexandr Lebedchenko",
-    author_email="rewer-96@mail.ru",
+    author_email="alex_leb@sms-man.com",
     description="A package to simplify work with the sms-man API",
     long_description=readme,
     long_description_content_type="text/markdown",
