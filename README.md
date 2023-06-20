@@ -1,3 +1,6 @@
+![python](https://img.shields.io/badge/Python-blue)
+[![Python 3.6](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/)
+
 This is a lightweight library that works as a connector to [Sms-Man public API](https://sms-man.com/site/docs-apiv2)  
 ## Installation
 
@@ -11,6 +14,7 @@ Usage examples:
 ```python
 from smsmanpy.requests import Smsman
 
+#To receive an API key, you need to register on the sms-man.com website.
 api_key = ""
 
 client = Smsman(api_key)

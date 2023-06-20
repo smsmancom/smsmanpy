@@ -205,6 +205,4 @@ class Smsman:
         return asyncio.run(self._request_phone_numbers(country_id, application_id, amount))
 
 
-client = Smsman('acDJv1u-S1tjXqps1eKhMwt7yDHO30hU')
-a = client.get_balance()
-print(a)
+
