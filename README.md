@@ -12,7 +12,7 @@ pip install smsmanpy
 ## RESTful APIs
 Usage examples:
 ```python
-from smsmanpy.requests import Smsman
+from smsmanpy import Smsman
 
 #To receive an API key, you need to register on the sms-man.com website.
 api_key = ""

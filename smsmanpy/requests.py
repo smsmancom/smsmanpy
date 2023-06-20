@@ -110,7 +110,7 @@ class Smsman:
                 else:
                     raise WrongTokenError(data['error_msg'])
 
-    async def __request_phone_number(self, country_id: str, application_id: str):
+    async def __request_phone_number(self, country_id: int, application_id: int):
         """
         Queries the phone number by country id and service id.
         Returns request number (needed to receive sms) and phone number.
@@ -135,7 +135,7 @@ class Smsman:
                 else:
                     raise WrongTokenError(resp_json['error_msg'])
 
-    async def __request_many_phone_numbers(self, country_id: str, application_id: str, semaphore: asyncio.Semaphore):
+    async def __request_many_phone_numbers(self, country_id: int, application_id: int, semaphore: asyncio.Semaphore):
         params = self.__check_params(country_id, application_id)
         async with aiohttp.ClientSession() as session:
             for _ in range(3):
@@ -151,7 +151,7 @@ class Smsman:
                         else:
                             raise WrongTokenError(resp_json['error_msg'])
 
-    async def _request_phone_numbers(self, country_id: str, application_id: str, amount: int):
+    async def _request_phone_numbers(self, country_id: int, application_id: int, amount: int):
 
         semaphore = asyncio.Semaphore(2)
         tasks = [self.__request_many_phone_numbers(country_id, application_id, semaphore) for i in range(amount)]
@@ -198,10 +198,10 @@ class Smsman:
     def get_sms(self, request_id: str):
         return asyncio.run(self.__get_sms(request_id))
 
-    def request_phone_number(self, country_id: str, application_id: str):
+    def request_phone_number(self, country_id: int, application_id: int):
         return asyncio.run(self.__request_phone_number(country_id, application_id))
 
-    def request_phone_numbers(self, country_id: str, application_id: str, amount: int):
+    def request_phone_numbers(self, country_id: int, application_id: int, amount: int):
         return asyncio.run(self._request_phone_numbers(country_id, application_id, amount))
 
 
