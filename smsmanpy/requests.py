@@ -190,6 +190,7 @@ class Smsman:
         """
         Returns the number if it did not receive an SMS. Money is returned to the balance
         :param request_id: Number of IF (get with phone number)
+
         """
         params = self.__check_params(request_id=request_id, status="reject")
 
