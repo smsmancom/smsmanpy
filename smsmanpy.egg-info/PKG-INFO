@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: smsmanpy
-Version: 0.0.3
+Version: 0.0.4
 Summary: A package to simplify work with the sms-man API
 Home-page: https://github.com/smsmancom/smsmanpy/
 Author: Alexandr Lebedchenko

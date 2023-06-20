@@ -7,7 +7,7 @@ requirements = ["aiohttp"]
 
 setup(
     name="smsmanpy",
-    version="0.0.3",
+    version="0.0.4",
     author="Alexandr Lebedchenko",
     author_email="alex_leb@sms-man.com",
     description="A package to simplify work with the sms-man API",
