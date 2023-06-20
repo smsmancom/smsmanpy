@@ -1,3 +1,19 @@
+Metadata-Version: 2.1
+Name: smsmanpy
+Version: 0.0.3
+Summary: A package to simplify work with the sms-man API
+Home-page: https://github.com/smsmancom/smsmanpy/
+Author: Alexandr Lebedchenko
+Author-email: alex_leb@sms-man.com
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
 ![python](https://img.shields.io/badge/Python-blue)
 [![Python 3.6](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/)
 

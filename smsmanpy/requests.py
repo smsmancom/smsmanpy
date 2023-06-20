@@ -141,15 +141,18 @@ class Smsman:
             for _ in range(3):
                 async with semaphore:
                     async with session.get(self.__base_url + self.__method_get_number, params=params) as response:
-                        resp_json = await response.json()
-                        if "request_id" in resp_json and "number" in resp_json:
-                            return resp_json['request_id'], resp_json["number"]
-                        elif resp_json['error_code'] == "balance":
-                            raise LowBalance(resp_json['error_msg'])
-                        elif resp_json["error_code"] == "no_numbers":
-                            continue
-                        else:
-                            raise WrongTokenError(resp_json['error_msg'])
+                        try:
+                            resp_json = await response.json()
+                            if "request_id" in resp_json and "number" in resp_json:
+                                return resp_json['request_id'], resp_json["number"]
+                            elif resp_json['error_code'] == "balance":
+                                raise LowBalance(resp_json['error_msg'])
+                            elif resp_json["error_code"] == "no_numbers":
+                                continue
+                            else:
+                                raise WrongTokenError(resp_json['error_msg'])
+                        except:
+                            raise await response.text()
 
     async def _request_phone_numbers(self, country_id: int, application_id: int, amount: int):
 
@@ -183,6 +186,20 @@ class Smsman:
 
         return params
 
+    async def __reject_number(self, request_id: str):
+        """
+        Returns the number if it did not receive an SMS. Money is returned to the balance
+        :param request_id: Number of IF (get with phone number)
+        """
+        params = self.__check_params(request_id=request_id, status="reject")
+
+        async with aiohttp.ClientSession() as session:
+            async with session.get(self.__base_url + self.__method_reject_number, params=params) as response:
+                response.raise_for_status()
+
+    def reject_number(self, request_id: str):
+        return asyncio.run(self.__reject_number(request_id))
+
     def get_all_services(self):
         return asyncio.run(self.__get_all_services())
 
@@ -203,6 +220,8 @@ class Smsman:
 
     def request_phone_numbers(self, country_id: int, application_id: int, amount: int):
         return asyncio.run(self._request_phone_numbers(country_id, application_id, amount))
+
+
 
 
 
