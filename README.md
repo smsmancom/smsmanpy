@@ -43,7 +43,7 @@ print(client.request_phone_numbers(country_id=1,
 sms_code = client.get_sms('request_id')
 
 # Reject the number
-print(client.reject_number('request_id'))
+client.reject_number('request_id')
 ```
 
   

@@ -13,7 +13,7 @@ setup(
     description="A package to simplify work with the sms-man API",
     long_description=readme,
     long_description_content_type="text/markdown",
-    url="https://github.com/smsmancom/smsmanpy/", #url from smsmangithab
+    url="https://github.com/smsmancom/smsmanpy",
     packages=find_packages(),
     install_requires=requirements,
     classifiers=[
